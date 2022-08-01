@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&display=swap');
+
+*,*::after,*::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 16px;
+}
+
+:root{
+    --clr-Background-color:hsl(0, 0%, 90%);
+    --clr-text-color:hsl(221, 51%, 16%);
+    --clr-Result-color:hsl(32, 100%, 49%);
+    --clr-font-main:'Cardo', serif;
+}
+
+
+body{
+   font-family:var(--clr-font-main);
+   background-color: var(--clr-Background-color);
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+.game{
+    width: 80%;
+    margin: auto;
+    color: var(--clr-text-color);
+}
+
+.header .game_title{
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.header span {
+    display: block;
+    width: 70%;
+    height: 3px;
+    margin: auto;
+    background-color: var(--clr-Result-color);
+}
+
+.weapons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    gap: 2rem;
+}
+
+.weapons button {
+    cursor: pointer;
+    padding:0.6rem 0.8rem;
+    border-radius: 3px;
+    background-color: transparent;
+    font-size: 1rem;
+    text-transform: uppercase;
+    border: none;
+    background-image: linear-gradient(45deg , var(--clr-Result-color), transparent);
+}
+
+.weapons button:hover {
+    color: white;
+    outline: 2px solid black;
+    border-radius: 3px;
+}
+
+
+.game_score {
+    margin-top: 2rem;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.game_score span{
+    font-size: 2rem;
+    color: var(--clr-Result-color);
+    margin-left: 0.5rem;
+    
+}
+
+.result{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: left;
+}
+
+#my_option,#computer_option{
+    margin-left: 0.5rem;
+    color: var(--clr-Result-color);
+}
+
+#result{
+    font-size: 2.5rem;
+    color: var(--clr-Result-color);
+    text-align: center;
+}
+
+@media screen and (min-width:768px){
+
+    .header .game_title{
+        font-size: 2.5rem;
+        gap: 2rem;
+    }
+
+     .header span{
+        width: 50%;
+    }
+
+    .weapons img{
+      width: 9rem;
+      margin-top: 5rem;
+    }
+
+    .weapons{
+        gap: 5rem;
+    }
+
+    .game_score{
+        font-size: 1.5rem;
+        margin-top: 3rem;
+    }
+
+    .game_score span{
+        font-size: 3rem;
+    }
+
+    .result{
+        font-size: 1.5rem;
+        margin-top: 3rem;
+    }
+
+    .result span{
+        font-size: 3rem;
+    }
+
+}
+
+@media screen and (min-width:1024px){
+
+    .game{
+        width: 90%;
+    }
+
+    .header span{
+        width: 40%;
+    }
+
+    .weapons img{
+        width: 12rem;
+    }
+
+    .game_body{
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    }
+}
+
+@media screen and (min-width:1440px){
+
+    .game_body{
+        justify-content: center;
+    }
+
+    .header span{
+        width: 30%;
+    }
+}
