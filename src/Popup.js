@@ -27,9 +27,8 @@ const Popup = ({
         </button>
         <div className="pop_up">
           {myScore >= 2 ? <h1 className="popup_title">You Win!</h1> : null}
-          {computerScore >= 2 ? (
-            <h1 className="popup_title">You Win!</h1>
-          ) : null}
+          {computerScore >= 2 ? 
+            <h1 className="popup_title">Computer Win!</h1> : null}
           <div className="scores">
             <span>Your Score: {myScore}</span> <br />
             <span>Computer Score: {computerScore}</span>
