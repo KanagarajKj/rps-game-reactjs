@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 import './index.css';
 import Popup from './Popup';
 
@@ -13,29 +13,23 @@ const App = () => {
 
   const computerChoose = () => {
     let weapons = ['rock', 'paper', 'scissor'];
-     setcomputerChoice(weapons[Math.round(Math.random() * 3)]);
+     return (weapons[Math.floor(Math.random() * 3)]);
   };
 
-    useEffect(() => {
-      computerChoose();
-      console.log(computerChoose())
-    }, [userChoice]);
-
-
     if (computerScore < 0) {
-        setComputerScore(0);
-      } else if (myScore < 0) {
-        setmyScore(0);
-      }
+      setComputerScore(0);
+    } else if (myScore < 0 ) {
+      setmyScore(0);
+    }
 
-      const gameResult = function () {
-        let gameOutput = `${userChoice}${computerChoice}`;
+      const gameResult = function (userWeapon) {
+        let computerWeapon = computerChoose();
+        let gameOutput = `${userWeapon}${computerWeapon}`;
+        setUserChoice(userWeapon);
+        setcomputerChoice(computerWeapon);
+        console.log(gameOutput);
 
-        {
-          console.log(gameOutput);
-        }
-
-        if (userChoice === computerChoice) {
+        if (userWeapon === computerWeapon) {
           setPlayerWin('draw');
         } else if (
           gameOutput === 'rockpaper' ||
@@ -56,11 +50,6 @@ const App = () => {
         }
       }; 
 
-   useEffect(() => {
-    gameResult(); 
-   }, [userChoice]);
-
-   
   return (
     <main className="game">
       <div className="header">
@@ -68,13 +57,13 @@ const App = () => {
         <span></span>
       </div>
       <div className="weapons">
-        <button type="submit" onClick={() => setUserChoice('rock')}>
+        <button type="submit" onClick={() => gameResult('rock')}>
           Rock
         </button>
-        <button type="submit" onClick={() => setUserChoice('paper')}>
+        <button type="submit" onClick={() => gameResult('paper')}>
           Paper
         </button>
-        <button type="submit" onClick={() => setUserChoice('scissor')}>
+        <button type="submit" onClick={() => gameResult('scissor')}>
           Scissor
         </button>
       </div>
@@ -108,8 +97,16 @@ const App = () => {
       </div>
 
       <div>
-        {myScore > 5 || computerScore > 5 ? (
-          <Popup myScore={myScore} computerScore={computerScore} />
+        {myScore >= 2 || computerScore >= 2 ? (
+          <Popup
+            myScore={myScore}
+            computerScore={computerScore}
+            setmyScore={setmyScore}
+            setComputerScore={setComputerScore}
+            setUserChoice={setUserChoice}
+            setcomputerChoice={setcomputerChoice}
+            setPlayerWin={setPlayerWin}
+          />
         ) : null}
       </div>
     </main>
